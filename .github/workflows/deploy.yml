@@ -16,4 +16,4 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./lab05/
-        server-dir: /htdocs/lab05/
+        server-dir: /htdocs/lab05/lab5_4
