@@ -1,0 +1,19 @@
+name: Deploy Lab05 to Hosting
+on:
+  push:
+    branches: [ main ]
+    paths: [ 'lab05/**' ]
+jobs:
+  web-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Sync files via FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./lab05/
+        server-dir: /htdocs/lab05/
